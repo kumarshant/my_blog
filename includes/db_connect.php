@@ -8,5 +8,4 @@
    if($conn->connect_error){
     die("database connection failed". $conn->connect_error);
    }
-   echo "database connected ";
 ?>

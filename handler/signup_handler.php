@@ -19,16 +19,18 @@
        if ($conn->query($createTableSQL) === TRUE) {
             // Prepare and insert the user data
             $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $username, $email, $hashedPassword);
+            $stmt->bind_param("sss", $username, $email, $password);
 
             // You should hash the password for security
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            //$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
             if ($stmt->execute()) {
                 echo "User created successfully!";
                 $_SESSION["user"]=["username"=>$username,
                 "email"=>$email
-            ];}
+            ];
+            header("Location:/blog_app");
+         }
              else {
                 echo "Error inserting user: " . $stmt->error;
             }

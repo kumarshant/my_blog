@@ -10,9 +10,10 @@
 </head>
 <body>
     <?php
+     session_start();
          include('includes/header.php');
      
-        if(isset($_GET['signup'])){
+        if(isset($_GET['signup']) && empty($_SESSION['user'])){
          include('./signup.php');
         }
         else if(isset($_GET['login'])){

@@ -34,10 +34,17 @@
           <input class="form-control me-2" type="search" placeholder="Search Articles With Tags.." aria-label="Search">
           <button class="btn bb" type="submit">Search</button>
         </form>
-        <div class="d-flex">
-          <a class="btn bb" href="?login=true">LogIn</a>
-          <a href="?signup=true" class="btn bb">SignUp</a>
-        </div>
+       <?php if (!empty($_SESSION['user']['username'])) { ?>
+         <div class="d-flex">
+              <a class="btn bb" href="./logout.php?logout=true">Logout</a>
+            </div>
+          <?php } else if(empty($_SESSION['user']['username'])) {?>
+           <div class="d-flex">
+              <a class="btn bb" href="?login=true">LogIn</a>
+              <a href="?signup=true" class="btn bb">SignUp</a>
+            </div>
+          <?php }?>  
+
       </div>
     </div>
   </nav>
