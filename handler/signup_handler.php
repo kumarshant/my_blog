@@ -1,4 +1,6 @@
 <?php
+  session_start();
+    include("../includes/db_connect.php");
    if($_SERVER['REQUEST_METHOD']==='POST'){
      
      $username=htmlspecialchars(trim($_POST['username']));
@@ -8,7 +10,35 @@
         echo("please provide all input feilds");
      }
      else{
-        print("user created sucessfully!");
+        $createTableSQL="CREATE TABLE IF NOT EXISTS users(id INT AUTO_INCREMENT PRIMARY KEY,
+        username VARCHAR(30) NOT NULL,
+        email VARCHAR(40) NOT NULL,
+        password VARCHAR(10) NOT NULL,
+       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
+
+       if ($conn->query($createTableSQL) === TRUE) {
+            // Prepare and insert the user data
+            $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $username, $email, $hashedPassword);
+
+            // You should hash the password for security
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+            if ($stmt->execute()) {
+                echo "User created successfully!";
+                $_SESSION["user"]=["username"=>$username,
+                "email"=>$email
+            ];}
+             else {
+                echo "Error inserting user: " . $stmt->error;
+            }
+
+            $stmt->close();
+        } else {
+            echo "Error creating table: " . $conn->error;
+        }
+
+        $conn->close();
      }
    }
 ?>
