@@ -16,6 +16,7 @@ include("../includes/db_connect.php");
       
       if($password===$user['password']){
             $_SESSION['user']=[
+                'id'=>$user['id'],
                'username'=>$user['username'],
                'email'=>$user['email']
             ];

@@ -25,10 +25,47 @@
      ?><br><br>
        <div class="about">
           <h2>About This Blog</h2><hr>
-           <p>Welcome to my corner of the internet, where curiosity meets exploration I am a thinker and learner passionate about unraveling the complexities of the world through the lenses of <strong>economics</strong>, <strong>physics</strong>, <strong>computer science</strong>, <strong>politics</strong>, and <strong>philosophy</strong>.</p>
-            <p>This blog is a space to share my thoughts, analyses, and reflections on topics that shape our understanding of the universe and society. From the mechanics of markets to the mysteries of quantum physics, from coding challenges to the ethics of governance, I aim to spark meaningful conversations and offer fresh perspectives.</p>
-            <p>Whether you’re here to dive into a technical breakdown, ponder a philosophical question, or explore the intersections of these fields, I hope you find something that inspires or challenges you. Join me in this journey of ideas—read, reflect, and feel free to share your thoughts in the comments!
-          </p>
+          <p><strong>Hey there, fellow thinker.</strong></p>
+
+            <p>Welcome to my corner of the internet — a raw, unpolished, and evolving space where I share deep (sometimes messy) thoughts on <b>Physics</b>, <b>Technology</b>, <b>Economics</b>, <b>Mathematics</b>, and <b>Politics</b>.</p>
+
+            <p>This blog began as part of my journey to learn web development (yes, PHP — judge me later). But what started as an assignment turned into something more personal: <em>a place to think, write, and connect with curious minds like you</em>.</p>
+
+            <p>If you're a developer, a student, or just someone who loves ideas — consider signing up. Not because I’m begging for it. But because <b>real developers respect the grind</b>. And hey, as they say: <em>"Bandar kya jaane adrak ka swaad?"</em></p>
+
+            <p>Now I know what you’re thinking…</p>
+            <p><i>"Prashant, why the hell should I sign up for this blog in 2025?"</i></p>
+
+            <p>Valid. Here’s why:
+            <ul>
+            <li>First of all it's not crappy if you are using php for the first time and within 1 day. It's version 1.0 . </li>
+            <li>I believe every one of us is capable of greatness. All those childhood dreams — of becoming an astronaut, a pilot, a changemaker — they’re still possible. The only real limits are the mental barriers we build over time. This blog is my way of breaking those walls — one thought, one post, one idea at a time.</li>
+
+            <li>right now <b>Elon Musk</b> is not allowing me to write full length paragraph on X, he wants money.</li>
+            <li>You’ll get to watch the evolution — of a developer, a thinker, a rebel in the making.</li>
+            <li>And yes, it’s FREE. Elon isn’t charging you here (yet).</li>
+            </ul>
+            </p>
+
+            <p>So if you’re really aspirational— <a href="?signup=true"><b>sign up</b></a> and be part of this crazy ride.</p>
+
+            <p>Oh, and follow me here too (because why not?):  
+            <a href="https://x.com/_kumarshant">X</a> | <a href="https://www.instagram.com/_prashant0903/">Instagram</a> | <a href="https://www.linkedin.com/in/kumarshant/">LinkedIn</a>  
+            </p>
+
+            <p><b>Final promise:</b><br>
+            You may forget a lot of names on the internet.<br>
+            <b>Mine won’t be one of them.</b></p>
+            
+          <div class="comments">
+    <form method="POST" action="/blog_app/handler/comment_handler.php">
+        <div class="mb-3 text-area">
+            <label for="exampleFormControlTextarea1" class="form-label"><b>Comments</b></label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="comments" placeholder="Put your comments here" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn bb submit">Submit</button>
+    </form>
+</div>
        </div>
      <style>
         body{
@@ -50,6 +87,17 @@
         }
         .about{
             margin:10px;
+        }
+        .comments{
+            margin-bottom:50px;
+            padding:0px;
+        }
+        .submit{
+            padding-top:0px;
+            padding-left:0px;
+        }
+        .text-area,.mb-3{
+            margin-bottom:0px;
         }
         
      </style>

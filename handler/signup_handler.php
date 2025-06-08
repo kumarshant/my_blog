@@ -12,7 +12,7 @@
      else{
         $createTableSQL="CREATE TABLE IF NOT EXISTS users(id INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(30) NOT NULL,
-        email VARCHAR(40) NOT NULL,
+        email VARCHAR(225) NOT NULL,
         password VARCHAR(10) NOT NULL,
        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
 
@@ -21,23 +21,22 @@
             $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
             $stmt->bind_param("sss", $username, $email, $password);
 
-            // You should hash the password for security
-            //$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
             if ($stmt->execute()) {
                 echo "User created successfully!";
-                $_SESSION["user"]=["username"=>$username,
-                "email"=>$email
+                $_SESSION["user"]=[
+                  'id'=>$user['id'],
+               'username'=>$username,
+               'email'=>$email
             ];
             header("Location:/blog_app");
          }
              else {
-                echo "Error inserting user: " . $stmt->error;
+                echo "Error inserting user: " .$stmt->error;
             }
 
             $stmt->close();
         } else {
-            echo "Error creating table: " . $conn->error;
+            echo "Error creating table: ". $conn->error;
         }
 
         $conn->close();
