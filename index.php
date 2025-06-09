@@ -61,7 +61,7 @@
             <b>Mine won’t be one of them.</b></p>
             
           <div class="comments">
-    <form method="POST" action="/blog_app/handler/comment_handler.php">
+    <form method="POST" action="/handler/comment_handler.php">
         <div class="mb-3 text-area">
             <label for="exampleFormControlTextarea1" class="form-label"><b>Comments</b></label>
             <textarea class="form-control" id="exampleFormControlTextarea1" name="comments" placeholder="Put your comments here" rows="3" required></textarea>

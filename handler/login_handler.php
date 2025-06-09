@@ -20,7 +20,7 @@ include("../includes/db_connect.php");
                'username'=>$user['username'],
                'email'=>$user['email']
             ];
-            header("Location:/blog_app");
+            header("Location:/");
       }
       else{
          print("invalid password");
@@ -28,7 +28,7 @@ include("../includes/db_connect.php");
    }
    else{
       echo "user not found . try signing up ";
-      header("Location:/blog_app");
+      header("Location:/");
    }
    $stmt->close();
    $conn->close();

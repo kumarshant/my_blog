@@ -6,7 +6,7 @@ include("../includes/db_connect.php");
 if (empty($_SESSION['user']) || empty($_SESSION['user']['id'] || empty($_SESSION['user']['email']))) {
     echo "<script>
             alert('You need to sign up or log in first!');
-            window.location.href = '/blog_app';
+            window.location.href = '/';
           </script>";
     exit;
 }
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($comments)) {
         echo "<script>
                 alert('Please enter a valid comment.');
-                window.location.href = '/blog_app';
+                window.location.href = '/';
               </script>";
         exit;
     }
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conn->query($createTableSQL) !== TRUE) {
         echo "<script>
                 alert('Error creating comments table: " . addslashes($conn->error) . "');
-                window.location.href = '/blog_app';
+                window.location.href = '/';
               </script>";
         exit;
     }
@@ -46,12 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         echo "<script>
                 alert('Comment added successfully!');
-                window.location.href = '/blog_app';
+                window.location.href = '/';
               </script>";
     } else {
         echo "<script>
                 alert('Error inserting comment: " . addslashes($stmt->error) . "');
-                window.location.href = '/blog_app';
+                window.location.href = '/';
               </script>";
     }
     $stmt->close();

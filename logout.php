@@ -20,7 +20,7 @@ if (isset($_GET['logout']) && $_GET['logout'] === 'true') {
         );
     }
 
-    header("Location: /blog_app");
+    header("Location: /");
     exit;
 }
 ?>

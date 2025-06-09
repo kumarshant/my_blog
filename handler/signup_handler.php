@@ -28,7 +28,7 @@
                'username'=>$username,
                'email'=>$email
             ];
-            header("Location:/blog_app");
+            header("Location:/");
             exit;
          }
              else {
