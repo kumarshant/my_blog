@@ -1,3 +1,6 @@
+ <?php
+ session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +13,7 @@
 </head>
 <body>
     <?php
-     session_start();
+     
          include('includes/header.php');
      
         if(isset($_GET['signup']) && empty($_SESSION['user'])){

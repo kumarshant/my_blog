@@ -24,11 +24,12 @@
             if ($stmt->execute()) {
                 echo "User created successfully!";
                 $_SESSION["user"]=[
-                  'id'=>$user['id'],
+                  'id'=>$conn->insert_id,
                'username'=>$username,
                'email'=>$email
             ];
             header("Location:/blog_app");
+            exit;
          }
              else {
                 echo "Error inserting user: " .$stmt->error;

@@ -3,7 +3,7 @@ session_start();
 include("../includes/db_connect.php");
 
 // Check if user is logged in
-if (!isset($_SESSION['user']['email']) || !isset($_SESSION['user']['id'])) {
+if (empty($_SESSION['user']) || empty($_SESSION['user']['id'] || empty($_SESSION['user']['email']))) {
     echo "<script>
             alert('You need to sign up or log in first!');
             window.location.href = '/blog_app';
@@ -11,8 +11,7 @@ if (!isset($_SESSION['user']['email']) || !isset($_SESSION['user']['id'])) {
     exit;
 }
 
-$user_id = (int)$_SESSION['user']['id']; // Cast to integer for safety
-
+$user_id = (int)$_SESSION['user']['id']; 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $comments = htmlspecialchars(trim($_POST['comments']));
 
@@ -24,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Ensure the comments table exists (run only once, ideally during setup)
     $createTableSQL = "CREATE TABLE IF NOT EXISTS comments (
         id INT AUTO_INCREMENT PRIMARY KEY,
         user_id INT NOT NULL,
@@ -41,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Insert the comment
+   
     $stmt = $conn->prepare("INSERT INTO comments(user_id, comments) VALUES (?, ?)");
     $stmt->bind_param("is", $user_id, $comments);
 
